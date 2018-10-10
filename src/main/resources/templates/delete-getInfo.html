@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Get Info for Delete</title>
+	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	
+</head>
+
+<body>
+	<h2>Hello!</h2>
+	<h3 th:text=" 'Hapus Penerbangan dengan license number : ' + ${pilot.licenseNumber} "></h3>
+
+	<form th:action="@{/flight/delete}" th:field="*{pilot}" method="POST">
+	
+<!-- 	th:object="${pilot}" -->
+	
+<!-- 		<input type="hidden" th:field="*{pilot}" /> -->
+		
+<!-- 		Flight Number: <br> -->
+<!-- 		<input type="text" name="flightNumber" /> -->
+<!-- 		<br> -->
+<!-- 		Origin: <br> -->
+<!-- 		<input type="text" name="origin" /> -->
+<!-- 		<br> -->
+<!-- 		Destination: <br> -->
+<!-- 		<input type="text" name="destination" /> -->
+<!-- 		<br> -->
+<!-- 		Time: <br> -->
+<!-- 		<input type="date" name="time" /> -->
+<!-- 		<br><br> -->
+
+		<button type="submit">Delete</button>
+	</form>
+</body>
+
+</html>
