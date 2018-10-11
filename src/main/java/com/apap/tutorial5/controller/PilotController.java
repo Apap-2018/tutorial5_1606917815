@@ -54,10 +54,10 @@ public class PilotController {
 		model.addAttribute("pilot", pilot);
 		return "view-pilot";
 	}
-
-	@RequestMapping(value = "/pilot/delete/{licenseNumber}", method = RequestMethod.GET)
-	private String deletePilot(@PathVariable(value = "licenseNumber") String licenseNumber, Model model) {
-		pilotService.deletePilot(licenseNumber);
+	
+	@RequestMapping(value = "/pilot/delete/{id}", method = RequestMethod.GET)
+	private String deletePilot(@PathVariable(value = "id") Long id, Model model) {
+		pilotService.deletePilotById(id);
 		return "delete-pilot";
 		
 	}

@@ -3,12 +3,13 @@
 
 <head>
 	<title>License Number Not Found in View Pilot</title>
-	
+	<object th:include="fragments/fragment :: title" th:remove="tag"></object>
 	<object th:include="fragments/fragment :: css" th:remove="tag"></object>
 	<object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
 
 <body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
 	<h2>Sorry..</h2>
 	<h3 th:text="${licenseNum} + ' not found in view pilot'"></h3>
 </body>

@@ -28,7 +28,6 @@ public class FlightController {
 		FlightModel flight = new FlightModel();
 		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
 		flight.setPilot(pilot);
-		
 		model.addAttribute("flight", flight);
 		return "addFlight";
 	}
@@ -46,23 +45,23 @@ public class FlightController {
 //		
 //	}
 	
-	@RequestMapping(value = "/flight/delete/{licenseNumber}", method = RequestMethod.GET)
-	private String getInfoDelete(@PathVariable(value = "licenseNumber") String licenseNumber, Model model) {
-		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
-		model.addAttribute("pilot", pilot);
-//		FlightModel flightIni = new FlightModel();
-//		model.addAttribute("flight", flightIni);
-		return "delete-getInfo";
+//	@RequestMapping(value = "/flight/delete/{licenseNumber}", method = RequestMethod.GET)
+//	private String getInfoDelete(@PathVariable(value = "licenseNumber") String licenseNumber, Model model) {
+//		PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
+//		model.addAttribute("pilot", pilot);
+////		FlightModel flightIni = new FlightModel();
+////		model.addAttribute("flight", flightIni);
+//		return "delete-getInfo";
 		
-	}
+//	}
 	
 	@RequestMapping(value = "/flight/delete", method = RequestMethod.POST)
-	private void deleteFlight(@ModelAttribute PilotModel pilot, Model model) {
-		System.out.println(pilot.getName());
-//		for(FlightModel flight : pilot.getPilotFlight()) {
-//			flightService.deleteFlightById(flight.getId());
-//		}
-//		return "delete-flight";
+	private String deleteFlight(@ModelAttribute PilotModel pilot, Model model) {
+//		System.out.println(pilot.getName());
+		for(FlightModel flight : pilot.getPilotFlight()) {
+			flightService.deleteFlightById(flight.getId());
+		}
+		return "delete-flight";
 		
 	}
 	

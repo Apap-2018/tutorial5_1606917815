@@ -24,9 +24,14 @@ public class PilotServiceImpl implements PilotService{
 		pilotDb.save(pilot);		
 	}
 	
+//	@Override
+//	public void deletePilot (String licenseNumber) {
+//		pilotDb.delete(this.getPilotDetailByLicenseNumber(licenseNumber));
+//	}
+	
 	@Override
-	public void deletePilot (String licenseNumber) {
-		pilotDb.delete(this.getPilotDetailByLicenseNumber(licenseNumber));
+	public void deletePilotById (long id) {
+		pilotDb.deleteById(id);
 	}
 	
 	@Override
